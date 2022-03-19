@@ -13,11 +13,7 @@
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
-    "types": [
-      "vite/client",
-      "vite-plugin-pages/client",
-      "cypress"
-    ],
+    "types": ["cypress"],
     "paths": {
       "~/*": ["src/*"]
     }
