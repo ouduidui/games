@@ -2,12 +2,16 @@
 type GamesCategory = {
   id: string
   label: { cn: string; en: string }
-  path: string
+  routeName: string
 }[]
 
 const games: GamesCategory = [
-  { id: 'sudoku', label: { cn: '数独', en: 'Sudoku' }, path: '' },
+  { id: 'sudoku', label: { cn: '数独', en: 'Sudoku' }, routeName: 'Sudoku' },
 ]
+
+const router = useRouter()
+
+const pageNavHandle = (routeName: string) => router.push({ name: routeName })
 </script>
 
 <template>
@@ -20,14 +24,16 @@ const games: GamesCategory = [
     items-center
     min-h-full
   >
-    <div
+    <p
       v-for="game in games" :key="game.id"
       cursor-pointer
       mb-5
+      transition-colors
       text="hover:gray-800 dark:hover:gray-50"
+      @click="pageNavHandle(game.routeName)"
     >
       {{ game.label.en }} - {{ game.label.cn }}
-    </div>
+    </p>
   </div>
 </template>
 

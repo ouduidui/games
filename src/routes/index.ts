@@ -7,6 +7,11 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     component: () => import('~/pages/home.vue'),
   },
+  {
+    name: 'Sudoku',
+    path: '/sudoku',
+    component: () => import('~/pages/sudoku.vue'),
+  },
 ]
 
 const router = createRouter({
