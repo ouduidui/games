@@ -3,25 +3,16 @@ context('Basic', () => {
     cy.visit('/')
   })
 
-  it('home', () => {
+  it('category', () => {
     cy.url()
       .should('eq', 'http://localhost:3000/')
 
-    cy.contains('p', 'Home')
-      .should('exist')
-    cy.contains('p', 'About')
+    cy.contains('p', 'Sudoku - 数独')
       .should('exist')
 
-    cy.contains('p', 'Count: 0')
-    cy.get('button[btn]')
-      .click()
-    cy.contains('p', 'Count: 1')
-  })
-
-  it('nav', () => {
-    cy.contains('p', 'About')
+    cy.contains('p', 'Sudoku - 数独')
       .click()
       .url()
-      .should('eq', 'http://localhost:3000/about')
+      .should('eq', 'http://localhost:3000/sudoku')
   })
 })
