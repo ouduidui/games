@@ -1,12 +1,15 @@
 <script setup lang="ts">
 type GamesCategory = {
   id: string
-  label: { cn: string; en: string }
+  label: { cn?: string; en: string }
   routeName: string
 }[]
 
 const games: GamesCategory = [
   { id: 'sudoku', label: { cn: '数独', en: 'Sudoku' }, routeName: 'Sudoku' },
+  { id: 'minesweeper', label: { cn: '扫雷', en: 'Minesweeper' }, routeName: 'Minesweeper' },
+  { id: 'tetris', label: { cn: '俄罗斯方块', en: 'Tetris' }, routeName: 'Tetris' },
+  { id: 'sudoku', label: { en: '2048' }, routeName: '2048' },
 ]
 
 const router = useRouter()
@@ -32,7 +35,7 @@ const pageNavHandle = (routeName: string) => router.push({ name: routeName })
       text="hover:gray-800 dark:hover:gray-50"
       @click="pageNavHandle(game.routeName)"
     >
-      {{ game.label.en }} - {{ game.label.cn }}
+      {{ game.label.en }}{{ game.label.cn && ` / ${game.label.cn}` }}
     </p>
   </div>
 </template>
