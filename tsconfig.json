@@ -1,22 +1,16 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "module": "ESNext",
-    "target": "es2016",
-    "lib": ["DOM", "ESNext"],
-    "strict": true,
-    "esModuleInterop": true,
-    "incremental": false,
-    "skipLibCheck": true,
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
     "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
     "resolveJsonModule": true,
-    "noUnusedLocals": true,
-    "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
-    "types": ["cypress"],
-    "paths": {
-      "~/*": ["src/*"]
-    }
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "types": ["@dcloudio/types"]
   },
-  "exclude": ["dist", "node_modules", "cypress"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

@@ -1,6 +1,13 @@
-<template>
-  <div flex="~ col" min-h-screen select-none>
-    <router-view pt-10 p="x-4" flex="1" />
-    <Footer />
-  </div>
-</template>
+<script setup lang="ts">
+import { onLaunch, onShow, onHide } from "@dcloudio/uni-app";
+onLaunch(() => {
+  console.log("App Launch");
+});
+onShow(() => {
+  console.log("App Show");
+});
+onHide(() => {
+  console.log("App Hide");
+});
+</script>
+<style></style>
