@@ -3,7 +3,7 @@ const title = ref('Hello')
 </script>
 
 <template>
-  <StatusBar />
+  <status-bar />
   <view
     class="font-momo font-light"
   >

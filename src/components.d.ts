@@ -7,7 +7,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    StatusBar: typeof import('./components/StatusBar.vue')['default']
+    StatusBar: typeof import('./components/StatusBar/index.vue')['default']
   }
 }
 
