@@ -3,22 +3,30 @@ import { defineConfig } from 'vite'
 import uni from '@dcloudio/vite-plugin-uni'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import Unocss from 'unocss/vite'
+import { presetUno, transformerDirectives, transformerVariantGroup } from 'unocss'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     Components({
-      // allow auto load markdown components under `./src/components/`
-      extensions: ['vue', 'md'],
-      // allow auto import and register components used in markdown
-      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      extensions: ['vue'],
+      include: [/\.vue$/, /\.vue\?vue/],
       dts: 'src/components.d.ts',
     }),
-    uni(),
+
+    Unocss({
+      presets: [
+        presetUno(),
+      ],
+      transformers: [transformerDirectives(), transformerVariantGroup()],
+    }),
+
     AutoImport({
       imports: ['vue', 'uni-app'],
       dts: './src/auto-imports.d.ts',
     }),
+
+    uni(),
   ],
   resolve: {
     alias: {

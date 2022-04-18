@@ -4,7 +4,11 @@ const title = ref('Hello')
 
 <template>
   <StatusBar />
-  <view>HelloWorld</view>
+  <view
+    class="font-momo font-light"
+  >
+    HelloWorld
+  </view>
 </template>
 
 <style>
