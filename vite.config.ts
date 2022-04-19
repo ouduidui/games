@@ -22,7 +22,10 @@ export default defineConfig({
     }),
 
     AutoImport({
-      imports: ['vue', 'uni-app'],
+      imports: [
+        'vue',
+        'uni-app',
+      ],
       dts: './src/auto-imports.d.ts',
     }),
 
@@ -31,6 +34,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
+      'router/': `${path.resolve(__dirname, 'src/router')}/`,
+      'components/': `${path.resolve(__dirname, 'src/components')}/`,
+      'pages/': `${path.resolve(__dirname, 'src/pages')}/`,
     },
   },
 })

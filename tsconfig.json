@@ -10,7 +10,14 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "types": ["@dcloudio/types"]
+    "types": ["@dcloudio/types"],
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"],
+      "router/*": ["src/router/*"],
+      "components/*": ["src/components/*"],
+      "pages/*": ["src/pages/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
