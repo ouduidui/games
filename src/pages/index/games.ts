@@ -14,6 +14,7 @@ export const games: GameType[] = [
     name: 'Sudoku',
     iconClass: 'i-arcticons-opensudoku',
     gradients: ['#ff7e5f', '#feb47b'],
+    routeKey: 'sudoku',
   },
   {
     id: 'minesweeper',

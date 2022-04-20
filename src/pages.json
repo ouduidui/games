@@ -5,6 +5,12 @@
       "style": {
         "navigationBarTitleText": "Home"
       }
+    },
+    {
+      "path": "pages/sudoku/index",
+      "style": {
+        "navigationBarTitleText": "Sudoku"
+      }
     }
   ],
   "globalStyle": {

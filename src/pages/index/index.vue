@@ -22,7 +22,9 @@ const gameTapHandle = (game: GameType) => {
 </script>
 
 <template>
+  <!-- #ifdef MP-WEIXIN -->
   <status-bar />
+  <!-- #endif -->
   <view class="page fixed left-0 right-0">
     <!-- Swiper -->
     <swiper

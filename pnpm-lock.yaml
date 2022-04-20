@@ -18,6 +18,7 @@ specifiers:
   '@dcloudio/uni-quickapp-webview': 3.0.0-alpha-3040420220402002
   '@dcloudio/vite-plugin-uni': 3.0.0-alpha-3040420220402002
   '@iconify-json/arcticons': ^1.1.12
+  '@iconify-json/iconoir': ^1.1.4
   '@ouduidui/eslint-config-vue': ^0.1.1
   '@types/chalk': ^2.2.0
   '@types/node': ^17.0.24
@@ -63,6 +64,7 @@ devDependencies:
   '@dcloudio/uni-cli-shared': 3.0.0-alpha-3040420220402002_postcss@8.4.12+vue@3.2.33
   '@dcloudio/vite-plugin-uni': 3.0.0-alpha-3040420220402002_5be8aa8e536a8ca0e7f20f29f0760ccd
   '@iconify-json/arcticons': 1.1.12
+  '@iconify-json/iconoir': 1.1.4
   '@ouduidui/eslint-config-vue': 0.1.1_eslint@8.13.0+typescript@4.6.3
   '@types/chalk': 2.2.0
   '@types/node': 17.0.24
@@ -836,6 +838,12 @@ packages:
 
   /@iconify-json/arcticons/1.1.12:
     resolution: {integrity: sha512-59YVIQL3T5mV/ftkntRh2MQ3DVkSkCa2MzhF2FsniggW35ClfWDxMjPC7SPR8irraZ3qmp04KIaCRf8HxuIMLw==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
+  /@iconify-json/iconoir/1.1.4:
+    resolution: {integrity: sha512-0XEbdJ9buk2BdWM3NrEY9Kpuy7G03A/cnSsccacIwd3j0nTt4vgauS/Q0FnPvB3BzNe7Dj/6nekQGxq0q5o4vg==}
     dependencies:
       '@iconify/types': 1.1.0
     dev: true
