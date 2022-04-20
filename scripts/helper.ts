@@ -1,3 +1,5 @@
+import fs from 'fs'
+import path from 'path'
 import type { Color } from 'chalk'
 import chalk from 'chalk'
 
@@ -109,3 +111,39 @@ export const PLATFORMS: {
 
 // eslint-disable-next-line no-console
 export const log = (msg: string, color: Color = 'green') => console.log(chalk[color](msg))
+
+/**
+ * format
+ */
+
+export const toCamelCase = (key: string) => key.split(' ').join('-').replace(/-([a-z])/g, (all, letter) => letter.toUpperCase())
+
+/**
+ * path
+ */
+
+const checkHasDir = (dir: string) => {
+  try {
+    log(`start check whether has same directory: ${dir}`, 'white')
+    fs.accessSync(dir, fs.constants.F_OK)
+    return true
+  }
+  catch (_) {
+    return false
+  }
+}
+
+const __dirname = path.dirname('.')
+const getAbsolutePath = (p: string): string => path.resolve(__dirname, p)
+
+export const createDir = (dir: string, needLog = true): string => {
+  const localDir = getAbsolutePath(dir)
+  if (checkHasDir(localDir)) {
+    needLog && log('createDir: the path already exists', 'red')
+    return
+  }
+  needLog && log('start create topic directory', 'white')
+  fs.mkdirSync(localDir)
+  needLog && log('topic directory create success')
+  return localDir
+}

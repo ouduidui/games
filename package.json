@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "esmo ./scripts/dev.ts",
     "build": "esmo ./scripts/build.ts",
+    "add-page": "esmo ./scripts/addPage.ts",
     "lint": "eslint \"**/*.{vue,ts,js}\""
   },
   "dependencies": {
