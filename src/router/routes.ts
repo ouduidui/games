@@ -5,10 +5,6 @@ const _routes = {
     path: '/pages/index/index',
     name: 'Home',
   },
-  about: {
-    path: '/pages/about/index',
-    name: 'About',
-  },
 }
 
 export const routes: Record<RouteKey, { path: string; name: string }> = _routes

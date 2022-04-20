@@ -4,7 +4,7 @@ import uni from '@dcloudio/vite-plugin-uni'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import Unocss from 'unocss/vite'
-import { presetUno, transformerDirectives, transformerVariantGroup } from 'unocss'
+import { presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from 'unocss'
 
 export default defineConfig({
   plugins: [
@@ -17,6 +17,10 @@ export default defineConfig({
     Unocss({
       presets: [
         presetUno(),
+        presetIcons({
+          scale: 1.2,
+          warn: true,
+        }),
       ],
       transformers: [transformerDirectives(), transformerVariantGroup()],
     }),
