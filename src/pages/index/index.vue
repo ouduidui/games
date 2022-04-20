@@ -2,18 +2,18 @@
 import { nav } from 'router/index'
 const title = ref('Hello')
 
-const toAbout = () => {
-  nav('about')
-}
+const toAbout = () => nav('about')
 </script>
 
 <template>
   <status-bar />
   <view
-    class="font-momo font-light"
-    @tap="toAbout"
+    class="font-momo text-center font-light p-5 flex-col items-center justify-center"
   >
-    HelloWorld
+    <view>HelloWorld</view>
+    <button class="w-20 text-sm p-1 mt-4" @tap="toAbout">
+      About
+    </button>
   </view>
 </template>
 
