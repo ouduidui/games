@@ -1,9 +1,36 @@
 <script setup lang="ts">
-import type { GameType } from './games'
-import { games } from './games'
+import type { GameType } from './types'
 import { nav } from '~/router'
 
 const activeIndex = ref(0)
+
+const games: GameType[] = [
+  {
+    id: 'sudoku',
+    name: 'Sudoku',
+    iconClass: 'i-arcticons-opensudoku',
+    gradients: ['#ff7e5f', '#feb47b'],
+    routeKey: 'sudoku',
+  },
+  {
+    id: 'minesweeper',
+    name: 'Minesweeper',
+    iconClass: 'i-arcticons-minesweeper',
+    gradients: ['#4ecdc4', '#556270'],
+  },
+  {
+    id: 'tetris',
+    name: 'Tetris',
+    iconClass: 'i-arcticons-tetris',
+    gradients: ['#f85032', '#e73827'],
+  },
+  {
+    id: '2048',
+    name: '2048',
+    iconClass: 'i-arcticons-a2048',
+    gradients: ['#56ab2f', '#a8e063'],
+  },
+]
 
 const changeGames = ({ detail: { current } }: { detail: { current: number } }) => activeIndex.value = current
 
