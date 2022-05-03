@@ -30,6 +30,7 @@
     "@dcloudio/uni-automator": "3.0.0-alpha-3040420220402002",
     "@dcloudio/uni-cli-shared": "3.0.0-alpha-3040420220402002",
     "@dcloudio/vite-plugin-uni": "3.0.0-alpha-3040420220402002",
+    "@iconify-json/akar-icons": "^1.1.4",
     "@iconify-json/arcticons": "^1.1.14",
     "@iconify-json/iconoir": "^1.1.5",
     "@ouduidui/eslint-config-vue": "^0.1.1",
