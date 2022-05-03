@@ -8,6 +8,9 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     StatusBar: typeof import('./components/StatusBar/index.vue')['default']
+    Sudoku: typeof import('./components/Sudoku/index.vue')['default']
+    SudokuItem: typeof import('./components/SudokuItem/index.vue')['default']
+    SudokuTipBox: typeof import('./components/SudokuTipBox/index.vue')['default']
   }
 }
 
