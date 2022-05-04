@@ -1,7 +1,7 @@
-type SudokuNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-type SudokuNumberWithEmply = SudokuNumber | 0
+export type SudokuNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+export type SudokuNumberWithEmply = SudokuNumber | 0
 
-type SudokuType<T> = [
+export type SudokuType<T> = [
   [T, T, T, T, T, T, T, T, T],
   [T, T, T, T, T, T, T, T, T],
   [T, T, T, T, T, T, T, T, T],

@@ -2,22 +2,26 @@
 const props = defineProps<{
   x: number
   y: number
+  initVal: number
 }>()
+
+const isInit = props.initVal !== 0
 </script>
 
 <template>
   <view
     class="sudoku-item font-sans text-xl text-center"
     :class="{
-      'small-border-right': !(x === 3 || x === 6 || x === 9),
-      'small-border-bottom': !(y === 3 || y === 6 || y === 9),
+      'small-border-right': !(x === 2 || x === 5 || x === 8),
+      'small-border-bottom': !(y === 2 || y === 5 || y === 8),
     }"
   >
-    <view class="relative z-1">
-      {{ x }}
+    <view v-show="initVal" class="relative z-1">
+      {{ initVal }}
     </view>
-    <SudokuTipBox />
-    <view class="absolute rounded-full circle-bg" />
+
+    <!-- <sudoku-tip-box /> -->
+    <view v-show="isInit" class="absolute rounded-full circle-bg" />
   </view>
 </template>
 

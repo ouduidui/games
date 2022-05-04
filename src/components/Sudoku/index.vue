@@ -1,15 +1,22 @@
 <script setup lang="ts">
+import type { SudokuNumberWithEmply, SudokuType } from '~/composables/sudoku'
+
 const props = defineProps<{
-  height: string
+  startingPuzzle: SudokuType<SudokuNumberWithEmply>
 }>()
 
+const ranges = Array(9).fill(0).map((_, i) => i)
 </script>
 
 <template>
   <view class="sudoku grid grid-cols-9 relative">
-    <view v-for="i in 9" :key="i">
-      <view v-for="j in 9" :key="j">
-        <sudoku-item :x="i" :y="j" />
+    <view v-for="i in ranges" :key="i">
+      <view v-for="j in ranges" :key="j">
+        <sudoku-item
+          :x="i"
+          :y="j"
+          :init-val="startingPuzzle[i][j]"
+        />
       </view>
     </view>
 

@@ -1,17 +1,22 @@
 <script lang="ts" setup>
+import { initSudoku } from './sudoku'
+import { timer } from '~/composables/timer'
 // #ifdef MP-WEIXIN
 import { systemInfo } from '~/composables/systemInfo'
 // #endif
-import { timer } from '~/composables/timer'
 
 let height = '100vh'
 // #ifdef MP-WEIXIN
 height = `calc(100vh - ${systemInfo.statusBarHeight!}px - 45px)`
 // #endif
 
-const numButtons = reactive<{ num: number; remain: number }[]>(
-  Array(9).fill(0).map((_, i) => ({ num: i + 1, remain: 9 })),
-)
+const {
+  numButtons,
+  solvePuzzle,
+  removeValues,
+  startingPuzzle,
+} = initSudoku('easy')
+
 </script>
 
 <template>
@@ -22,7 +27,7 @@ const numButtons = reactive<{ num: number; remain: number }[]>(
     <view class="opacity-90 pt-7 text-l font-mono text-center">
       {{ timer }}
     </view>
-    <sudoku :height="height" />
+    <sudoku :starting-puzzle="startingPuzzle" />
 
     <view class="grid grid-cols-5 num-btn-box">
       <button
