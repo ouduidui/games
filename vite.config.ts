@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import path from 'path'
 import { defineConfig } from 'vite'
 import uni from '@dcloudio/vite-plugin-uni'
@@ -41,6 +43,12 @@ export default defineConfig({
       'router/': `${path.resolve(__dirname, 'src/router')}/`,
       'components/': `${path.resolve(__dirname, 'src/components')}/`,
       'pages/': `${path.resolve(__dirname, 'src/pages')}/`,
+    },
+  },
+  test: {
+    include: ['tests/**/*.spec.ts'],
+    deps: {
+      inline: ['@vue'],
     },
   },
 })

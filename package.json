@@ -6,30 +6,32 @@
     "dev": "esmo ./scripts/dev.ts",
     "build": "esmo ./scripts/build.ts",
     "add-page": "esmo ./scripts/addPage.ts",
-    "lint": "eslint \"**/*.{vue,ts,js}\""
+    "lint": "eslint \"**/*.{vue,ts,js}\"",
+    "test": "vitest"
   },
   "dependencies": {
-    "@dcloudio/uni-app": "3.0.0-alpha-3040420220402002",
-    "@dcloudio/uni-app-plus": "3.0.0-alpha-3040420220402002",
-    "@dcloudio/uni-components": "3.0.0-alpha-3040420220402002",
-    "@dcloudio/uni-h5": "3.0.0-alpha-3040420220402002",
-    "@dcloudio/uni-mp-alipay": "3.0.0-alpha-3040420220402002",
-    "@dcloudio/uni-mp-baidu": "3.0.0-alpha-3040420220402002",
-    "@dcloudio/uni-mp-kuaishou": "3.0.0-alpha-3040420220402002",
-    "@dcloudio/uni-mp-lark": "3.0.0-alpha-3040420220402002",
-    "@dcloudio/uni-mp-qq": "3.0.0-alpha-3040420220402002",
-    "@dcloudio/uni-mp-toutiao": "3.0.0-alpha-3040420220402002",
-    "@dcloudio/uni-mp-weixin": "3.0.0-alpha-3040420220402002",
-    "@dcloudio/uni-quickapp-webview": "3.0.0-alpha-3040420220402002",
+    "@dcloudio/uni-app": "3.0.0-alpha-3040820220426002",
+    "@dcloudio/uni-app-plus": "3.0.0-alpha-3040820220426002",
+    "@dcloudio/uni-components": "3.0.0-alpha-3040820220426002",
+    "@dcloudio/uni-h5": "3.0.0-alpha-3040820220426002",
+    "@dcloudio/uni-mp-alipay": "3.0.0-alpha-3040820220426002",
+    "@dcloudio/uni-mp-baidu": "3.0.0-alpha-3040820220426002",
+    "@dcloudio/uni-mp-kuaishou": "3.0.0-alpha-3040820220426002",
+    "@dcloudio/uni-mp-lark": "3.0.0-alpha-3040820220426002",
+    "@dcloudio/uni-mp-qq": "3.0.0-alpha-3040820220426002",
+    "@dcloudio/uni-mp-toutiao": "3.0.0-alpha-3040820220426002",
+    "@dcloudio/uni-mp-weixin": "3.0.0-alpha-3040820220426002",
+    "@dcloudio/uni-quickapp-webview": "3.0.0-alpha-3040820220426002",
     "qs": "^6.10.3",
     "vue": "^3.2.33",
-    "vue-i18n": "^9.1.10"
+    "vue-i18n": "^9.1.9",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
-    "@dcloudio/types": "^2.6.6",
-    "@dcloudio/uni-automator": "3.0.0-alpha-3040420220402002",
-    "@dcloudio/uni-cli-shared": "3.0.0-alpha-3040420220402002",
-    "@dcloudio/vite-plugin-uni": "3.0.0-alpha-3040420220402002",
+    "@dcloudio/types": "^2.6.4",
+    "@dcloudio/uni-automator": "3.0.0-alpha-3040820220426002",
+    "@dcloudio/uni-cli-shared": "3.0.0-alpha-3040820220426002",
+    "@dcloudio/vite-plugin-uni": "3.0.0-alpha-3040820220426002",
     "@iconify-json/akar-icons": "^1.1.4",
     "@iconify-json/arcticons": "^1.1.14",
     "@iconify-json/iconoir": "^1.1.5",
@@ -50,6 +52,7 @@
     "unocss": "^0.32.9",
     "unplugin-auto-import": "^0.7.1",
     "unplugin-vue-components": "^0.19.3",
-    "vite": "^2.9.7"
+    "vite": "^2.9.5",
+    "vitest": "^0.10.2"
   }
 }
