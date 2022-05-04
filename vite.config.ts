@@ -42,6 +42,7 @@ export default defineConfig({
       '~/': `${path.resolve(__dirname, 'src')}/`,
       'router/': `${path.resolve(__dirname, 'src/router')}/`,
       'components/': `${path.resolve(__dirname, 'src/components')}/`,
+      'composables/': `${path.resolve(__dirname, 'src/composables')}/`,
       'pages/': `${path.resolve(__dirname, 'src/pages')}/`,
     },
   },

@@ -24,8 +24,8 @@ export const timer = computed(() => {
     return `${format(minutes)}:${format(secends)}`
 })
 
-const DELAY = 800
-let intervalId: number | undefined
+const DELAY = 500
+let intervalId: NodeJS.Timer | undefined
 const updateEndTime = () =>
   intervalId = setInterval(() => end.value = getTime(), DELAY)
 
