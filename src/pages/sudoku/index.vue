@@ -2,6 +2,7 @@
 // #ifdef MP-WEIXIN
 import { systemInfo } from '~/composables/systemInfo'
 // #endif
+import { timer } from '~/composables/timer'
 
 let height = '100vh'
 // #ifdef MP-WEIXIN
@@ -19,7 +20,7 @@ const numButtons = reactive<{ num: number; remain: number }[]>(
   <!-- #endif -->
   <view class="main flex flex-col justify-between">
     <view class="opacity-90 pt-7 text-l font-mono text-center">
-      1:32:46
+      {{ timer }}
     </view>
     <sudoku :height="height" />
 
