@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { activeNumBtn, initSudoku, numBtnTapHandle } from './sudoku'
+import { activeNum, changeActiveNum, initSudoku } from './sudoku'
 import { timer } from '~/composables/timer'
 import { height } from '~/composables/systemInfo'
 
@@ -21,7 +21,6 @@ const {
     <sudoku
       v-if="puzzle"
       :puzzle="puzzle!"
-      :active-num="activeNumBtn"
     />
 
     <view class="grid grid-cols-5 num-btn-box">
@@ -29,8 +28,8 @@ const {
         v-for="btn in numButtons"
         :key="btn.num"
         class="relative bg-transparent text-xl flex justify-center items-center m-auto rounded-full transition-colors num-btn"
-        :class="{'num-btn-active': activeNumBtn === btn.num}"
-        @tap="numBtnTapHandle(btn.num)"
+        :class="{'num-btn-active': activeNum === btn.num}"
+        @tap="changeActiveNum(btn.num)"
       >
         {{ btn.num }}
         <view class="absolute scale-50 remain">

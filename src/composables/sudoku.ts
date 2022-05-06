@@ -13,7 +13,7 @@ export type SudokuType<T> = [
   [T, T, T, T, T, T, T, T, T],
 ]
 
-const NUMS: Readonly<SudokuNumber[]> = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+export const NUMS: Readonly<SudokuNumber[]> = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 const shuffle = <T = SudokuNumber>(arr: T[]): T[] => {
   for (let i = arr.length - 1; i > 0; i--) {

@@ -5,9 +5,9 @@ const props = defineProps<{
   x: number
   y: number
   num: number
+  notes: SudokuNumber[]
   bg?: boolean
   activeBg?: boolean
-  tips?: SudokuNumber[]
 }>()
 </script>
 
@@ -26,9 +26,13 @@ const props = defineProps<{
       {{ num }}
     </view>
 
-    <!-- <sudoku-tip-box /> -->
+    <sudoku-tip-box
+      v-show="num === 0 && notes?.length"
+      :notes="notes"
+    />
+
     <view
-      v-show="bg"
+      v-show="bg || activeBg"
       class="absolute rounded-full circle-bg"
       :class="{
         'circle-active-bg': activeBg,

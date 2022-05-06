@@ -65,9 +65,9 @@ export const initSudoku = (level: LevelType) => {
   }
 }
 
-export const activeNumBtn = ref<SudokuNumber | 0>(0)
+export const activeNum = ref<SudokuNumber | 0>(0)
 
-export const numBtnTapHandle = (numOrClear: SudokuNumber | 'clear') => {
+export const changeActiveNum = (numOrClear: SudokuNumber | 'clear') => {
   if (typeof numOrClear === 'number')
-    activeNumBtn.value = activeNumBtn.value === numOrClear ? 0 : numOrClear
+    activeNum.value = activeNum.value === numOrClear ? 0 : numOrClear
 }

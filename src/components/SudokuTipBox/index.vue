@@ -1,9 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { SudokuNumber } from '~/composables/sudoku'
+import { NUMS } from '~/composables/sudoku'
+
+defineProps<{
+  notes: SudokuNumber[]
+}>()
+</script>
 
 <template>
   <view class="absolute z-1 inset-0 grid grid-cols-3">
     <view
-      v-for="i in 9"
+      v-for="i in NUMS"
+      v-show="notes?.includes(i)"
       :key="i"
       class="font-xs scale-50 tip-num text-center"
     >
