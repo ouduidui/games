@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { back, redirect } from '~/router'
-import { menuButton, systemInfo } from '~/composables/systemInfo'
+import { menuButton, statusBarHeight, systemInfo } from '~/composables/systemInfo'
 const filterBoxTop = `${systemInfo.statusBarHeight!}px`
-const menuButtonLeft = `calc(100vw - ${menuButton.left}px + 10px)`
+const menuButtonLeft = `calc(100vw - ${menuButton!.left}px + 10px)`
 
-const props = defineProps<{
+defineProps<{
   title?: string
 }>()
 
@@ -42,7 +42,7 @@ const isShowHomeIcon = !isShowBackIcon && currentPages[0].route !== 'pages/index
 .status-bar {
   margin-top: v-bind(filterBoxTop);
   margin-right: v-bind(menuButtonLeft);
-  height: 45px;
+  height: v-bind(statusBarHeight);
 }
 
 .truncate {

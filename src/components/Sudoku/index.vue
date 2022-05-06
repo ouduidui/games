@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import type { SudokuNumberWithEmply, SudokuType } from '~/composables/sudoku'
+import type { PuzzleType } from '~/pages/sudoku/sudoku'
 
 const props = defineProps<{
-  startingPuzzle: SudokuType<SudokuNumberWithEmply>
+  puzzle: SudokuType<PuzzleType>
+  activeNum: SudokuNumberWithEmply
 }>()
 
 const ranges = Array(9).fill(0).map((_, i) => i)
@@ -15,8 +17,9 @@ const ranges = Array(9).fill(0).map((_, i) => i)
         <sudoku-item
           :x="i"
           :y="j"
-          :num="startingPuzzle[i][j]"
-          :bg="startingPuzzle[i][j] !== 0"
+          :num="puzzle[i][j].val"
+          :bg="puzzle[i][j].isLock"
+          :active-bg="activeNum === puzzle[i][j].val"
         />
       </view>
     </view>

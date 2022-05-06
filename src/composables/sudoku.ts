@@ -129,7 +129,7 @@ const fillPuzzle = (
  * Generate Playable Board
  */
 
-interface removeType {
+export interface removeType {
   row: number
   col: number
   val: SudokuNumber

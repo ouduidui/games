@@ -4,7 +4,7 @@ import type { SudokuNumber } from '~/composables/sudoku'
 const props = defineProps<{
   x: number
   y: number
-  num?: number
+  num: number
   bg?: boolean
   activeBg?: boolean
   tips?: SudokuNumber[]

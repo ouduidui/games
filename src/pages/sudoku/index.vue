@@ -1,22 +1,12 @@
 <script lang="ts" setup>
-import { initSudoku } from './sudoku'
+import { activeNumBtn, initSudoku, numBtnTapHandle } from './sudoku'
 import { timer } from '~/composables/timer'
-// #ifdef MP-WEIXIN
-import { systemInfo } from '~/composables/systemInfo'
-// #endif
-
-let height = '100vh'
-// #ifdef MP-WEIXIN
-height = `calc(100vh - ${systemInfo.statusBarHeight!}px - 45px)`
-// #endif
+import { height } from '~/composables/systemInfo'
 
 const {
   numButtons,
-  solvePuzzle,
-  removeValues,
-  startingPuzzle,
+  puzzle,
 } = initSudoku('easy')
-
 </script>
 
 <template>
@@ -27,20 +17,27 @@ const {
     <view class="opacity-90 pt-7 text-l font-mono text-center">
       {{ timer }}
     </view>
-    <sudoku :starting-puzzle="startingPuzzle" />
+
+    <sudoku
+      v-if="puzzle"
+      :puzzle="puzzle!"
+      :active-num="activeNumBtn"
+    />
 
     <view class="grid grid-cols-5 num-btn-box">
       <button
         v-for="btn in numButtons"
         :key="btn.num"
-        class="relative bg-transparent text-xl flex justify-center items-center m-auto rounded-full num-btn"
+        class="relative bg-transparent text-xl flex justify-center items-center m-auto rounded-full transition-colors num-btn"
+        :class="{'num-btn-active': activeNumBtn === btn.num}"
+        @tap="numBtnTapHandle(btn.num)"
       >
         {{ btn.num }}
         <view class="absolute scale-50 remain">
           {{ btn.remain }}
         </view>
       </button>
-      <button class="text-xl bg-transparent flex justify-center items-center m-auto rounded-full num-btn ">
+      <button class="text-xl bg-transparent flex justify-center items-center m-auto rounded-full num-btn">
         <view class="i-akar-icons-cross" />
       </button>
     </view>
@@ -71,6 +68,10 @@ $side-padding: 30px;
     height: $btn-width;
     border: 1px solid $color-grey;
     color: $color-text;
+  }
+
+  .num-btn-active {
+    background-color: $color-grey;
   }
 
   .remain {
