@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import type { SudokuNumber } from '~/composables/sudoku'
+
 const props = defineProps<{
   x: number
   y: number
-  initVal: number
+  num?: number
+  bg?: boolean
+  activeBg?: boolean
+  tips?: SudokuNumber[]
 }>()
-
-const isInit = props.initVal !== 0
 </script>
 
 <template>
@@ -16,12 +19,21 @@ const isInit = props.initVal !== 0
       'small-border-bottom': !(y === 2 || y === 5 || y === 8),
     }"
   >
-    <view v-show="initVal" class="relative z-1">
-      {{ initVal }}
+    <view
+      v-show="num"
+      class="relative z-1"
+    >
+      {{ num }}
     </view>
 
     <!-- <sudoku-tip-box /> -->
-    <view v-show="isInit" class="absolute rounded-full circle-bg" />
+    <view
+      v-show="bg"
+      class="absolute rounded-full circle-bg"
+      :class="{
+        'circle-active-bg': activeBg,
+      }"
+    />
   </view>
 </template>
 
@@ -75,5 +87,9 @@ $small-border-height: calc(#{$sudoku-item-size} - #{$small-border-margin});
   left: $margin;
   bottom: $margin;
   right: $margin;
+}
+
+.circle-active-bg {
+  background: $color-blue;
 }
 </style>

@@ -15,7 +15,8 @@ const ranges = Array(9).fill(0).map((_, i) => i)
         <sudoku-item
           :x="i"
           :y="j"
-          :init-val="startingPuzzle[i][j]"
+          :num="startingPuzzle[i][j]"
+          :bg="startingPuzzle[i][j] !== 0"
         />
       </view>
     </view>
