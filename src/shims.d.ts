@@ -1,5 +1,6 @@
-declare module '*.vue' {
-  import type { DefineComponent } from 'vue'
-  const component: DefineComponent<{}, {}, any>
-  export default component
+declare module '~react-pages' {
+  // eslint-disable-next-line import/no-duplicates
+  import type{ RouteObject } from 'react-router'
+  const routes: RouteObject[]
+  export default routes
 }

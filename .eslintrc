@@ -1,3 +1,5 @@
 {
-  "extends": ["@ouduidui/eslint-config-vue"]
+  "extends": [
+    "@ouduidui/eslint-config-react"
+  ]
 }
