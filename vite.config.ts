@@ -2,54 +2,64 @@
 
 import path from 'path'
 import { defineConfig } from 'vite'
-import uni from '@dcloudio/vite-plugin-uni'
+import vue from '@vitejs/plugin-vue'
+import Pages from 'vite-plugin-pages'
+import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import Unocss from 'unocss/vite'
-import { presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from 'unocss'
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    Components({
-      extensions: ['vue'],
-      include: [/\.vue$/, /\.vue\?vue/],
-      dts: 'src/components.d.ts',
-    }),
-
-    Unocss({
-      presets: [
-        presetUno(),
-        presetIcons({
-          scale: 1.2,
-          warn: true,
-        }),
-      ],
-      transformers: [transformerDirectives(), transformerVariantGroup()],
-    }),
-
-    AutoImport({
-      imports: [
-        'vue',
-        'uni-app',
-      ],
-      dts: './src/auto-imports.d.ts',
-    }),
-
-    uni(),
-  ],
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
-      'router/': `${path.resolve(__dirname, 'src/router')}/`,
-      'components/': `${path.resolve(__dirname, 'src/components')}/`,
-      'composables/': `${path.resolve(__dirname, 'src/composables')}/`,
-      'pages/': `${path.resolve(__dirname, 'src/pages')}/`,
     },
   },
+  plugins: [
+    vue(),
+
+    // https://github.com/hannoeru/vite-plugin-pages
+    Pages({
+      extensions: ['vue'],
+    }),
+
+    // https://github.com/antfu/unocss
+    // see unocss.config.ts for config
+    Unocss(),
+
+    // https://github.com/antfu/vite-plugin-components
+    Components({
+      // allow auto load markdown components under `./src/components/`
+      extensions: ['vue', 'md'],
+      // allow auto import and register components used in markdown
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      dts: 'src/components.d.ts',
+    }),
+
+    // https://github.com/antfu/unplugin-auto-import
+    AutoImport({
+      imports: ['vue', 'vue-router', '@vueuse/core', 'pinia'],
+      dts: 'src/auto-imports.d.ts',
+    }),
+  ],
+  // https://github.com/vitest-dev/vitest
   test: {
-    include: ['tests/**/*.spec.ts'],
+    include: ['test/**/*.spec.ts'],
+    environment: 'jsdom',
     deps: {
-      inline: ['@vue'],
+      inline: ['@vue', '@vueuse'],
     },
+  },
+
+  optimizeDeps: {
+    include: [
+      'vue',
+      'vue-router',
+      '@vueuse/core',
+    ],
+  },
+
+  server: {
+    host: '0.0.0.0',
   },
 })

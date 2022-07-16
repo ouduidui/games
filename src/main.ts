@@ -1,10 +1,18 @@
-import { createSSRApp } from 'vue'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import { persist } from 'pinia-persists'
+import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
+import routes from '~pages'
+
+import '@unocss/reset/tailwind.css'
+import './styles/main.css'
 import 'uno.css'
 
-export function createApp() {
-  const app = createSSRApp(App)
-  return {
-    app,
-  }
-}
+const router = createRouter({
+  // ...
+  routes,
+  history: createWebHistory(),
+})
+
+createApp(App).use(router).use(createPinia().use(persist())).mount('#app')

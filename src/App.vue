@@ -1,21 +1,6 @@
-<script setup lang="ts">
-</script>
-
-<style lang="scss">
-#app, page {
-  background-color: $color-bg;
-  color: $color-text;
-}
-
-/**
-* reset
-*/
-button::after {
-  border: none;
-}
-
-.button-hover {
-  background-color: inherit !important;
-  opacity: 1 !important;
-}
-</style>
+<template>
+  <div flex="~ col" min-h-screen select-none pt-10>
+    <router-view flex-1 container m-auto />
+    <Footer />
+  </div>
+</template>

@@ -62,8 +62,8 @@ const safeToPlace = (
   num: SudokuNumber,
 ): boolean => {
   return rowSafe(puzzle, row, num)
-   && colSafe(puzzle, col, num)
-   && boxSafe(puzzle, row, col, num)
+    && colSafe(puzzle, col, num)
+    && boxSafe(puzzle, row, col, num)
 }
 
 /**
