@@ -1,4 +1,6 @@
 dist
 node_modules
 public
-pages.json
+cypress/fixtures
+cypress/support
+cypress/plugins
